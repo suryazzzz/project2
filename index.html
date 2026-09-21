@@ -354,11 +354,117 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--ivory);color:va
 .mobile-nav{position:fixed;top:0;left:0;width:min(320px,100vw);height:100vh;background:var(--ivory);z-index:960;padding:24px;overflow-y:auto;animation:slideLeft .3s ease}
 @keyframes slideLeft{from{transform:translateX(-100%)}to{transform:translateX(0)}}
 .mobile-nav-links{display:flex;flex-direction:column;gap:4px;margin-top:32px}
-.mobile-nav-links a{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;color:var(--charcoal);text-decoration:none;padding:8px 0;border-bottom:1px solid var(--sand);transition:color .2s}
+.mobile-nav-links a{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:500;color:var(--charcoal);text-decoration:none;padding:10px 0;border-bottom:1px solid var(--sand);transition:color .2s;display:flex;justify-content:space-between;align-items:center}
 .mobile-nav-links a:hover{color:var(--terracotta)}
-@media(max-width:1024px){.hero-split{grid-template-columns:1fr;max-height:none;min-height:auto}.hero-image-col{aspect-ratio:4/3}.mood-grid{grid-template-columns:repeat(2,1fr)}.saree-edit-section{grid-template-columns:1fr}.saree-edit-img{aspect-ratio:4/3}.salwar-edit-grid{grid-template-columns:1fr}.salwar-edit-text{padding:0}.brand-story{grid-template-columns:1fr}.brand-story-img{aspect-ratio:16/9}.strip-item{min-width:50%}.just-in-grid{grid-template-columns:1fr 1fr}.just-in-card.large{grid-row:span 1;aspect-ratio:4/5;grid-column:span 2}.reviews-grid{grid-template-columns:repeat(2,1fr)}.promo-section{grid-template-columns:1fr}.insta-grid{grid-template-columns:repeat(3,1fr)}.footer-top{grid-template-columns:1fr;gap:48px}.footer-brand-side{padding-right:0}.footer-divider{display:none}.footer-links-side{padding-left:0;grid-template-columns:repeat(2,1fr)}.contact-grid{grid-template-columns:1fr}.detail-grid{grid-template-columns:1fr}.detail-gallery{position:static}.checkout-grid{grid-template-columns:1fr}.order-summary-box{position:static}}
-@media(max-width:768px){.header-inner{grid-template-columns:auto 1fr auto;padding:0 16px}.header-nav{display:none}.menu-toggle{display:flex}.hero-text-col{padding:clamp(24px,5vw,48px)}.hero-headline{font-size:clamp(40px,10vw,72px)}.carousel-section{padding:60px 0 60px 20px}.carousel-header{padding-right:20px}.carousel-track{padding-right:20px}.prod-card{width:220px}.loved-card{grid-template-columns:80px 1fr auto;gap:12px}.loved-card-img{width:80px;height:100px}.just-in-grid{grid-template-columns:1fr}.just-in-card.large{grid-column:span 1}.reviews-grid{grid-template-columns:1fr}.footer-links-side{grid-template-columns:1fr}.strip-item{min-width:80%}.listing-header{flex-direction:column;align-items:flex-start}.checkout-fields-2{grid-template-columns:1fr}.detail-perks{grid-template-columns:1fr;gap:8px}.detail-specs{grid-template-columns:1fr}.detail-cta{flex-direction:column}}
-@media(max-width:480px){.insta-grid{grid-template-columns:repeat(2,1fr)}}
+.mobile-bottom-nav{display:none}
+.mobile-sticky-buy-bar{display:none}
+@media(hover: none){
+  .prod-card-hover{display:none !important}
+  .prod-img-wrap:hover img{transform:none !important}
+  .prod-card:hover .prod-img-vignette,.grid-prod-card:hover .prod-img-vignette{opacity:0 !important}
+  .hero-image-col img{animation:none !important}
+}
+@media(max-width:1024px){
+  .hero-split{grid-template-columns:1fr;max-height:none;min-height:auto}
+  .hero-image-col{aspect-ratio:4/3}
+  .mood-grid{grid-template-columns:repeat(2,1fr)}
+  .saree-edit-section{grid-template-columns:1fr}
+  .saree-edit-img{aspect-ratio:4/3}
+  .salwar-edit-grid{grid-template-columns:1fr}
+  .salwar-edit-text{padding:0}
+  .brand-story{grid-template-columns:1fr}
+  .brand-story-img{aspect-ratio:16/9}
+  .strip-item{min-width:50%}
+  .just-in-grid{grid-template-columns:1fr 1fr}
+  .just-in-card.large{grid-row:span 1;aspect-ratio:4/5;grid-column:span 2}
+  .reviews-grid{grid-template-columns:repeat(2,1fr)}
+  .promo-section{grid-template-columns:1fr}
+  .insta-grid{grid-template-columns:repeat(3,1fr)}
+  .footer-top{grid-template-columns:1fr;gap:48px}
+  .footer-brand-side{padding-right:0}
+  .footer-divider{display:none}
+  .footer-links-side{padding-left:0;grid-template-columns:repeat(2,1fr)}
+  .contact-grid{grid-template-columns:1fr}
+  .detail-grid{grid-template-columns:1fr}
+  .detail-gallery{position:static}
+  .checkout-grid{grid-template-columns:1fr}
+  .order-summary-box{position:static}
+}
+@media(max-width:768px){
+  body{padding-bottom:62px}
+  .mobile-bottom-nav{display:flex;position:fixed;bottom:0;left:0;right:0;height:58px;background:rgba(247,243,236,.98);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--sand);z-index:850;justify-content:space-around;align-items:center;padding:0 4px}
+  .mobile-bottom-nav a,.mobile-bottom-nav button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;color:var(--mid-gray);text-decoration:none;font-size:10px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;font-family:'DM Sans',sans-serif;background:none;border:none;cursor:pointer;position:relative;padding:6px 8px;min-width:52px;transition:color .15s}
+  .mobile-bottom-nav a.active,.mobile-bottom-nav a:hover{color:var(--terracotta)}
+  .mbn-icon{display:flex;align-items:center;justify-content:center;height:22px}
+  .mbn-badge{position:absolute;top:2px;right:8px;background:var(--terracotta);color:var(--white);font-size:9px;font-weight:700;min-width:16px;height:16px;border-radius:8px;padding:0 4px;display:flex;align-items:center;justify-content:center}
+  .mobile-sticky-buy-bar{display:flex;position:fixed;bottom:0;left:0;right:0;height:64px;background:var(--ivory);border-top:1px solid var(--sand);padding:0 16px;z-index:890;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 -4px 20px rgba(0,0,0,.08)}
+  .mobile-sticky-price-wrap{display:flex;flex-direction:column}
+  .mobile-sticky-price{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--terracotta);line-height:1}
+  .mobile-sticky-orig{font-size:11px;color:var(--warm-gray);text-decoration:line-through;margin-top:2px}
+  .mobile-sticky-actions{display:flex;align-items:center;gap:8px;flex:1;justify-content:flex-end}
+  .mobile-sticky-wish{width:42px;height:42px;border:1px solid var(--sand);background:none;border-radius:2px;display:flex;align-items:center;justify-content:center;color:var(--warm-gray);cursor:pointer;flex-shrink:0}
+  .mobile-sticky-wish.active{background:var(--terracotta);color:var(--white);border-color:var(--terracotta)}
+  .mobile-sticky-cta-btn{padding:12px 20px;font-size:11px;font-weight:700;letter-spacing:.12em}
+  .header-inner{grid-template-columns:auto 1fr auto;padding:0 16px;height:56px}
+  .header-nav{display:none}
+  .header-logo{height:30px}
+  .header-actions{gap:14px}
+  .menu-toggle{display:flex}
+  .hero-text-col{padding:clamp(24px,5vw,40px)}
+  .hero-headline{font-size:clamp(36px,9vw,60px);margin-bottom:20px}
+  .hero-desc{font-size:14px;margin-bottom:24px}
+  .carousel-section{padding:48px 0 48px 16px}
+  .carousel-header{padding-right:16px;margin-bottom:20px}
+  .carousel-track{gap:12px;padding-right:16px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+  .prod-card{width:200px;scroll-snap-align:start}
+  .prod-card-info{padding:12px}
+  .prod-card-name{font-size:12px;min-height:32px}
+  .prod-card-price{font-size:17px}
+  .horizontal-filter-bar{display:flex;overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch;gap:6px;padding-bottom:10px;scrollbar-width:none}
+  .horizontal-filter-bar::-webkit-scrollbar{display:none}
+  .filter-pill-btn{white-space:nowrap;padding:7px 12px;font-size:10px}
+  .loved-card{grid-template-columns:72px 1fr auto;gap:12px;padding:14px 0}
+  .loved-card-img{width:72px;height:90px}
+  .loved-card-name{font-size:16px}
+  .loved-card-price{font-size:18px}
+  .just-in-grid{grid-template-columns:1fr}
+  .just-in-card.large{grid-column:span 1}
+  .reviews-grid{grid-template-columns:1fr}
+  .footer-links-side{grid-template-columns:1fr;gap:24px}
+  .strip-item{min-width:80%;padding:36px 20px}
+  .listing-header{flex-direction:column;align-items:flex-start;gap:12px}
+  .checkout-fields-2{grid-template-columns:1fr}
+  .detail-page{padding:20px 16px}
+  .detail-breadcrumb{margin-bottom:16px;font-size:10px}
+  .detail-thumbs{overflow-x:auto;padding-bottom:6px;-webkit-overflow-scrolling:touch}
+  .detail-thumb{width:64px;height:80px}
+  .detail-perks{grid-template-columns:1fr;gap:8px}
+  .detail-specs{grid-template-columns:1fr;gap:8px}
+  .detail-cta{flex-direction:column;gap:10px}
+  .detail-cta .btn-terra,.detail-cta .btn-outline-dark{width:100%;padding:14px}
+  .whatsapp-inquiry-bar{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:640px){
+  .product-grid-v2{grid-template-columns:repeat(2,1fr);gap:10px}
+  .grid-prod-info{padding:10px 8px}
+  .grid-prod-name{font-size:12px;min-height:30px;line-height:1.25}
+  .grid-prod-fabric{font-size:10px;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .grid-prod-price{font-size:16px}
+  .grid-prod-orig{font-size:11px;margin-left:4px}
+  .grid-prod-actions{gap:6px;margin-top:8px}
+  .grid-prod-actions .btn-add{padding:8px 4px;font-size:9px;letter-spacing:.08em}
+  .wish-icon-grid{width:32px;height:32px}
+  .size-btn-v2{padding:3px 6px;font-size:9px}
+  .mood-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .mood-card-title{font-size:18px}
+  .salwar-img-collage{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+  .prod-card{width:170px}
+  .insta-grid{grid-template-columns:repeat(2,1fr)}
+  .salwar-edit-title{font-size:32px}
+  .section-title-xl{font-size:32px}
+}
 </style>
 </head>
 <body>
@@ -458,9 +564,11 @@ function CartDrawer({cart,updateQty,removeFromCart,onClose}){
         <a href="#/sarees" onClick={onClose} className="btn-terra">Explore Sarees</a></div>):(
         <><div className="cart-items">{cart.map(item=>(
           <div key={item.id+'-'+item.size} className="cart-item">
-            <img src={item.images[0]} alt={item.name} className="cart-item-img" onError={handleImgError}/>
+            <a href={'#/product/'+item.id} onClick={onClose} style={{display:'block',flexShrink:0}} aria-label={item.name}>
+              <img src={item.images[0]} alt={item.name} className="cart-item-img" onError={handleImgError}/>
+            </a>
             <div className="cart-item-info">
-              <p className="cart-item-name">{item.name}</p>
+              <a href={'#/product/'+item.id} onClick={onClose} style={{textDecoration:'none',color:'inherit'}}><p className="cart-item-name">{item.name}</p></a>
               <p className="cart-item-meta">{item.size?'Size: '+item.size+' · ':''}{item.fabric}</p>
               <p className="cart-item-price">{fmt(item.price)}</p>
               <div className="cart-qty">
@@ -492,18 +600,18 @@ function CarouselCard({product,wishlist,toggleWishlist,addToCart}){
   const isSal=product.category==='Salwars';
   const [loaded,setLoaded]=useState(false);
   return(<div className="prod-card" style={{display:'flex',flexDirection:'column',height:'100%'}}>
-    <div className="prod-card-img" style={{flexShrink:0}}>
+    <div className="prod-card-img" style={{flexShrink:0,position:'relative'}}>
       {product.isNew&&<span className="prod-card-badge badge-new-v2">New</span>}
       {product.isBestSeller&&!product.isNew&&<span className="prod-card-badge badge-best-v2">Loved</span>}
-      <div className={'prod-img-wrap'+(loaded?' img-loaded':'')}>
+      <a href={'#/product/'+product.id} className={'prod-img-wrap'+(loaded?' img-loaded':'')} style={{display:'block',width:'100%',height:'100%',position:'relative',textDecoration:'none'}} aria-label={product.name}>
         <div className="img-shimmer"/>
         <img src={product.images[0]} alt={product.name} loading="lazy" onLoad={()=>setLoaded(true)} onError={e=>{handleImgError(e);setLoaded(true);}}/>
         <div className="prod-img-vignette"/>
-      </div>
-      <button className={'prod-card-wish'+(inW?' active':'')} onClick={()=>toggleWishlist(product.id)}><IcoHeart style={{width:16,height:16}} filled={inW}/></button>
+      </a>
+      <button className={'prod-card-wish'+(inW?' active':'')} onClick={(e)=>{e.preventDefault();e.stopPropagation();toggleWishlist(product.id);}} aria-label="Wishlist"><IcoHeart style={{width:16,height:16}} filled={inW}/></button>
       <div className="prod-card-hover">
         <a href={'#/product/'+product.id} className="prod-card-hover-btn">Quick View</a>
-        <button className="prod-card-hover-btn" onClick={()=>addToCart(product,null)}>Add to Bag</button>
+        <button className="prod-card-hover-btn" onClick={(e)=>{e.preventDefault();e.stopPropagation();addToCart(product,null);}}>Add to Bag</button>
       </div>
     </div>
     <div className="prod-card-info" style={{flex:1,display:'flex',flexDirection:'column',justifyContent:'space-between'}}>
@@ -524,17 +632,18 @@ function GridCard({product,wishlist,toggleWishlist,addToCart}){
   const isSal=product.category==='Salwars';
   const [sz,setSz]=useState('');
   const [loaded,setLoaded]=useState(false);
-  const handle=()=>{if(isSal&&!sz){alert('Please select a size.');return;}addToCart(product,sz||null);};
+  const handle=(e)=>{if(e){e.preventDefault();e.stopPropagation();}if(isSal&&!sz){alert('Please select a size.');return;}addToCart(product,sz||null);};
   return(<div className="grid-prod-card" style={{display:'flex',flexDirection:'column',height:'100%'}}>
-    <div className="grid-prod-img" style={{flexShrink:0}}>
+    <div className="grid-prod-img" style={{flexShrink:0,position:'relative'}}>
       {product.isNew&&<span className="prod-card-badge badge-new-v2">New</span>}
       {product.isBestSeller&&!product.isNew&&<span className="prod-card-badge badge-best-v2">Best</span>}
       {product.discount>=25&&<span className="prod-card-badge badge-off-v2" style={{top:'auto',bottom:12}}>{product.discount}% Off</span>}
-      <div className={'prod-img-wrap'+(loaded?' img-loaded':'')} style={{position:'absolute',inset:0}}>
+      <a href={'#/product/'+product.id} className={'prod-img-wrap'+(loaded?' img-loaded':'')} style={{position:'absolute',inset:0,display:'block',textDecoration:'none'}} aria-label={product.name}>
         <div className="img-shimmer"/>
         <img src={product.images[0]} alt={product.name} loading="lazy" onLoad={()=>setLoaded(true)} onError={e=>{handleImgError(e);setLoaded(true);}}/>
         <div className="prod-img-vignette"/>
-      </div>
+      </a>
+      <button className={'wish-icon-grid'+(inW?' active':'')} onClick={(e)=>{e.preventDefault();e.stopPropagation();toggleWishlist(product.id);}} style={{position:'absolute',top:10,right:10,zIndex:4,background:'var(--white)',borderRadius:'50%',width:32,height:32,boxShadow:'0 2px 6px rgba(0,0,0,.15)'}} aria-label="Wishlist"><IcoHeart style={{width:15,height:15}} filled={inW}/></button>
     </div>
     <div className="grid-prod-info" style={{flex:1,display:'flex',flexDirection:'column',justifyContent:'space-between'}}>
       <div>
@@ -543,7 +652,7 @@ function GridCard({product,wishlist,toggleWishlist,addToCart}){
       </div>
       <div style={{minHeight:26,margin:'6px 0',display:'flex',alignItems:'center'}}>
         {isSal?(
-          <div className="grid-size-btns" style={{marginBottom:0}}>{product.sizes.map(s=><button key={s} className={'size-btn-v2'+(sz===s?' sel':'')} onClick={()=>setSz(s===sz?'':s)}>{s}</button>)}</div>
+          <div className="grid-size-btns" style={{marginBottom:0}} onClick={e=>e.stopPropagation()}>{product.sizes.map(s=><button key={s} className={'size-btn-v2'+(sz===s?' sel':'')} onClick={(e)=>{e.stopPropagation();setSz(s===sz?'':s);}}>{s}</button>)}</div>
         ):(
           <span style={{fontSize:11,color:'var(--warm-gray)'}}>✦ {product.length || '5.5 meters'}</span>
         )}
@@ -553,7 +662,7 @@ function GridCard({product,wishlist,toggleWishlist,addToCart}){
         <div style={{fontSize:11,color:'var(--warm-gray)',marginBottom:10}}>⭐ {product.rating} ({product.reviews})</div>
         <div className="grid-prod-actions">
           <button className="btn-add" onClick={handle}>Add to Bag</button>
-          <button className={'wish-icon-grid'+(inW?' active':'')} onClick={()=>toggleWishlist(product.id)}><IcoHeart style={{width:16,height:16}} filled={inW}/></button>
+          <button className={'wish-icon-grid'+(inW?' active':'')} onClick={(e)=>{e.stopPropagation();toggleWishlist(product.id);}} aria-label="Wishlist"><IcoHeart style={{width:16,height:16}} filled={inW}/></button>
         </div>
       </div>
     </div>
@@ -586,14 +695,23 @@ function HomePage({products,wishlist,toggleWishlist,addToCart}){
         <p className="hero-desc">Discover refined Indian silhouettes designed for celebrations, everyday elegance and everything in between.</p>
         <div style={{display:'flex',gap:12,flexWrap:'wrap'}}><a href="#/sarees" className="btn-terra">Shop the Collection</a><a href="#/salwars" className="btn-outline-dark">Explore Salwars</a></div>
       </div>
-      <div className="hero-image-col"><img src={sarees[0]?.images[0]} alt="Srithi The Couture 2026 Collection" onError={handleImgError}/><div className="hero-label">SRITHI / 2026 COLLECTION</div></div>
+      <div className="hero-image-col">
+        <a href={'#/product/'+(sarees[0]?.id||1)} style={{display:'block',width:'100%',height:'100%',position:'relative',textDecoration:'none'}} aria-label="Srithi The Couture 2026 Collection">
+          <img src={sarees[0]?.images[0]} alt="Srithi The Couture 2026 Collection" onError={handleImgError}/>
+          <div className="hero-label">SRITHI / 2026 COLLECTION · VIEW PRODUCT →</div>
+        </a>
+      </div>
     </section>
     <section className="mood-section">
       <div className="mood-header"><div><p className="section-eyebrow">Curated for You</p><h2 className="section-title-xl">Shop By Mood</h2></div><a href="#/sarees" style={{fontSize:12,letterSpacing:'.12em',textTransform:'uppercase',color:'var(--terracotta)',fontWeight:600,textDecoration:'none'}}>View All →</a></div>
       <div className="mood-grid">{moods.map(m=><a key={m.title} href={m.href} className="mood-card"><img src={m.img} alt={m.title} loading="lazy" onError={handleImgError}/><div className="mood-card-overlay"/><div className="mood-card-content"><p className="mood-card-tag">{m.desc}</p><p className="mood-card-title">{m.title}</p></div></a>)}</div>
     </section>
     <section className="saree-edit-section">
-      <div className="saree-edit-img"><img src={sarees[1]?.images[0]} alt="The Saree Atelier" onError={handleImgError}/></div>
+      <div className="saree-edit-img">
+        <a href={'#/product/'+(sarees[1]?.id||2)} style={{display:'block',width:'100%',height:'100%',textDecoration:'none'}} aria-label="The Saree Atelier">
+          <img src={sarees[1]?.images[0]} alt="The Saree Atelier" onError={handleImgError}/>
+        </a>
+      </div>
       <div className="saree-edit-text"><p className="section-eyebrow" style={{color:'var(--terra-lt)'}}>Curated</p><h2 className="section-title-xl">The Saree<br/>Atelier</h2><p className="saree-edit-desc">From timeless woven textures to contemporary silhouettes, explore sarees curated for every occasion.</p><a href="#/sarees" className="btn-outline-ivory">Explore Sarees</a></div>
     </section>
     <section className="carousel-section" style={{background:'var(--ivory)'}}>
@@ -603,9 +721,9 @@ function HomePage({products,wishlist,toggleWishlist,addToCart}){
     <section className="salwar-edit-section">
       <div className="salwar-edit-grid">
         <div className="salwar-img-collage">
-          <div className="salwar-img-main"><img src={salwars[0]?.images[0]} alt="Salwar" onError={handleImgError}/></div>
-          <div className="salwar-img-small"><img src={salwars[1]?.images[0]} alt="Salwar" onError={handleImgError}/></div>
-          <div className="salwar-img-small"><img src={salwars[2]?.images[0]} alt="Salwar" onError={handleImgError}/></div>
+          <a href={'#/product/'+(salwars[0]?.id||21)} className="salwar-img-main" style={{display:'block',textDecoration:'none'}} aria-label={salwars[0]?.name || 'Salwar'}><img src={salwars[0]?.images[0]} alt="Salwar" onError={handleImgError}/></a>
+          <a href={'#/product/'+(salwars[1]?.id||22)} className="salwar-img-small" style={{display:'block',textDecoration:'none'}} aria-label={salwars[1]?.name || 'Salwar'}><img src={salwars[1]?.images[0]} alt="Salwar" onError={handleImgError}/></a>
+          <a href={'#/product/'+(salwars[2]?.id||23)} className="salwar-img-small" style={{display:'block',textDecoration:'none'}} aria-label={salwars[2]?.name || 'Salwar'}><img src={salwars[2]?.images[0]} alt="Salwar" onError={handleImgError}/></a>
         </div>
         <div className="salwar-edit-text">
           <p className="section-eyebrow">Versatile</p><h2 className="salwar-edit-title">The Salwar<br/>Atelier</h2>
@@ -629,7 +747,11 @@ function HomePage({products,wishlist,toggleWishlist,addToCart}){
     </section>
     <section className="brand-story">
       <div className="brand-story-text"><p className="section-eyebrow">Our Story</p><h2 className="section-title-xl">Made for<br/><em>the Moment</em></h2><p className="brand-story-body">Srithi The Couture brings together timeless Indian craftsmanship and contemporary fashion sensibility, creating pieces designed to become part of your most memorable moments.</p><div style={{marginTop:32,display:'flex',gap:12,flexWrap:'wrap'}}><a href="#/sarees" className="btn-terra">Shop Now</a><a href="#/salwars" className="btn-outline-dark">Salwar Suits</a></div></div>
-      <div className="brand-story-img"><img src={sarees[3]?.images[0]} alt="Craftsmanship" onError={handleImgError}/></div>
+      <div className="brand-story-img">
+        <a href={'#/product/'+(sarees[3]?.id||4)} style={{display:'block',width:'100%',height:'100%',textDecoration:'none'}} aria-label="Artisan silk saree">
+          <img src={sarees[3]?.images[0]} alt="Craftsmanship" onError={handleImgError}/>
+        </a>
+      </div>
     </section>
     <div className="collection-strip">{[['Sarees','#/sarees'],['Salwars','#/salwars'],['New Arrivals','#/new-arrivals'],['Best Sellers','#/best-sellers']].map(([t,h])=><a key={t} href={h} className="strip-item"><span className="strip-item-title">{t}</span><span className="strip-item-arrow">EXPLORE →</span></a>)}</div>
     <section className="most-loved-section">
@@ -645,7 +767,7 @@ function HomePage({products,wishlist,toggleWishlist,addToCart}){
       <div className="reviews-grid">{reviews.map((r,i)=><div key={i} className="review-card-v2"><p className="review-stars">{'★'.repeat(r.stars)}</p><p className="review-text">{r.text}</p><p className="review-author">— {r.name}</p><p className="review-product">{r.product}</p></div>)}</div>
     </section>
     <section className="insta-section"><p className="section-eyebrow" style={{textAlign:'center'}}>Instagram</p><h2 className="section-title-xl" style={{textAlign:'center'}}>Follow The Couture</h2><p style={{textAlign:'center',fontSize:13,color:'var(--terracotta)',letterSpacing:'.12em',textTransform:'uppercase',marginTop:8,fontWeight:600}}>@SRITHITHECOUTURE</p>
-      <div className="insta-grid">{[salwars[0],sarees[0],salwars[2],sarees[2],salwars[4]].map((p,i)=><div key={i} className="insta-item"><img src={p?.images[0]} alt={'Instagram '+i} loading="lazy" onError={handleImgError}/><div className="insta-item-overlay"><IcoInsta className="insta-icon" style={{width:28,height:28}}/></div></div>)}</div>
+      <div className="insta-grid">{[salwars[0],sarees[0],salwars[2],sarees[2],salwars[4]].map((p,i)=><a key={i} href={'#/product/'+(p?.id||1)} className="insta-item" aria-label={p?.name||'Instagram '+i}><img src={p?.images[0]} alt={'Instagram '+i} loading="lazy" onError={handleImgError}/><div className="insta-item-overlay"><IcoInsta className="insta-icon" style={{width:28,height:28}}/></div></a>)}</div>
     </section>
   </div>);
 }
@@ -750,6 +872,18 @@ function ProductDetailPage({product,wishlist,toggleWishlist,addToCart}){
         </div>
       </div>
     </div>
+    <div className="mobile-sticky-buy-bar">
+      <div className="mobile-sticky-price-wrap">
+        <span className="mobile-sticky-price">{fmt(product.price)}</span>
+        <span className="mobile-sticky-orig">{fmt(product.originalPrice)}</span>
+      </div>
+      <div className="mobile-sticky-actions">
+        <button className={'mobile-sticky-wish'+(inW?' active':'')} onClick={()=>toggleWishlist(product.id)} aria-label="Wishlist">
+          <IcoHeart style={{width:18,height:18}} filled={inW}/>
+        </button>
+        <button className="btn-terra mobile-sticky-cta-btn" onClick={doCart}>Add to Bag</button>
+      </div>
+    </div>
     {guide&&<SizeGuideModal onClose={()=>setGuide(false)}/>}
   </div>);
 }
@@ -821,7 +955,7 @@ function CheckoutPage({cart}){
         </div>
       </div>
       <div><div className="order-summary-box"><h3>Order Summary</h3>
-        <div style={{maxHeight:200,overflowY:'auto',marginBottom:16}}>{cart.map(item=><div key={item.id+'-'+item.size} className="order-item"><img src={item.images[0]} alt={item.name} onError={handleImgError}/><div style={{flex:1,minWidth:0}}><p className="order-item-name">{item.name}</p><p className="order-item-meta">{item.size?'Size: '+item.size+' · ':''}Qty: {item.qty}</p></div><span className="order-item-price">{fmt(item.price*item.qty)}</span></div>)}</div>
+        <div style={{maxHeight:200,overflowY:'auto',marginBottom:16}}>{cart.map(item=><div key={item.id+'-'+item.size} className="order-item"><a href={'#/product/'+item.id} aria-label={item.name}><img src={item.images[0]} alt={item.name} onError={handleImgError}/></a><div style={{flex:1,minWidth:0}}><a href={'#/product/'+item.id} style={{textDecoration:'none',color:'inherit'}}><p className="order-item-name">{item.name}</p></a><p className="order-item-meta">{item.size?'Size: '+item.size+' · ':''}Qty: {item.qty}</p></div><span className="order-item-price">{fmt(item.price*item.qty)}</span></div>)}</div>
         <div className="order-summary-row"><span>Subtotal</span><span>{fmt(sub)}</span></div>
         <div className="order-summary-row"><span>Delivery</span><span className={del===0?'green':''}>{del===0?'FREE':fmt(del)}</span></div>
         <div className="order-summary-row total"><span>Total</span><span style={{color:'var(--terracotta)'}}>{fmt(sub+del)}</span></div>
@@ -1090,8 +1224,42 @@ function App(){
     <Footer/>
     {searchOpen&&<SearchOverlay onClose={()=>setSearchOpen(false)} onSearch={(q)=>{setSearchQuery(q);window.location.hash='#/search';}}/>}
     {cartOpen&&<CartDrawer cart={cart} updateQty={updateQty} removeFromCart={removeFromCart} onClose={()=>setCartOpen(false)}/>}
+    <MobileBottomNav page={page} wishlist={wishlist} cart={cart} onCartOpen={()=>setCartOpen(true)}/>
     {toasts.slice(-1).map(t=><Toast key={t.id} message={t.msg} onDone={()=>setToasts(ts=>ts.filter(x=>x.id!==t.id))}/>)}
   </div>);
+}
+
+function MobileBottomNav({page,wishlist,cart,onCartOpen}){
+  const isDetail=page.startsWith('#/product/');
+  if(isDetail)return null;
+  const wc=wishlist.length;
+  const cc=cart.reduce((s,i)=>s+i.qty,0);
+  return(
+    <nav className="mobile-bottom-nav">
+      <a href="#/" className={page==='#/'||page===''?'active':''}>
+        <span className="mbn-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+        <span>Home</span>
+      </a>
+      <a href="#/sarees" className={page==='#/sarees'?'active':''}>
+        <span className="mbn-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18"/><path d="M3 12h18"/></svg></span>
+        <span>Sarees</span>
+      </a>
+      <a href="#/salwars" className={page==='#/salwars'?'active':''}>
+        <span className="mbn-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span>
+        <span>Salwars</span>
+      </a>
+      <a href="#/wishlist" className={page==='#/wishlist'?'active':''}>
+        <span className="mbn-icon"><IcoHeart style={{width:20,height:20}} filled={wc>0}/></span>
+        <span>Wishlist</span>
+        {wc>0&&<span className="mbn-badge">{wc}</span>}
+      </a>
+      <button onClick={onCartOpen} aria-label="Shopping Bag">
+        <span className="mbn-icon"><IcoBag style={{width:20,height:20}}/></span>
+        <span>Bag</span>
+        {cc>0&&<span className="mbn-badge">{cc}</span>}
+      </button>
+    </nav>
+  );
 }
 ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
 </script>
