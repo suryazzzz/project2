@@ -491,8 +491,8 @@ function CarouselCard({product,wishlist,toggleWishlist,addToCart}){
   const inW=wishlist.includes(product.id);
   const isSal=product.category==='Salwars';
   const [loaded,setLoaded]=useState(false);
-  return(<div className="prod-card">
-    <div className="prod-card-img">
+  return(<div className="prod-card" style={{display:'flex',flexDirection:'column',height:'100%'}}>
+    <div className="prod-card-img" style={{flexShrink:0}}>
       {product.isNew&&<span className="prod-card-badge badge-new-v2">New</span>}
       {product.isBestSeller&&!product.isNew&&<span className="prod-card-badge badge-best-v2">Loved</span>}
       <div className={'prod-img-wrap'+(loaded?' img-loaded':'')}>
@@ -506,11 +506,15 @@ function CarouselCard({product,wishlist,toggleWishlist,addToCart}){
         <button className="prod-card-hover-btn" onClick={()=>addToCart(product,null)}>Add to Bag</button>
       </div>
     </div>
-    <div className="prod-card-info">
-      <a href={'#/product/'+product.id} style={{textDecoration:'none'}}><p className="prod-card-name">{product.name}</p></a>
-      <p className="prod-card-fabric">{product.fabric}</p>
-      {isSal&&<p className="size-label">S / M / L / XL / XXL</p>}
-      <div><span className="prod-card-price">{fmt(product.price)}</span><span className="prod-card-orig">{fmt(product.originalPrice)}</span></div>
+    <div className="prod-card-info" style={{flex:1,display:'flex',flexDirection:'column',justifyContent:'space-between'}}>
+      <div>
+        <a href={'#/product/'+product.id} style={{textDecoration:'none',display:'block',minHeight:36}}><p className="prod-card-name" style={{display:'-webkit-box',WebkitLineClamp:2,WebkitBoxOrient:'vertical',overflow:'hidden'}}>{product.name}</p></a>
+        <p className="prod-card-fabric">{product.fabric}</p>
+      </div>
+      <div style={{marginTop:'auto',paddingTop:6}}>
+        <p className="size-label" style={{minHeight:18,marginBottom:4}}>{isSal?'S / M / L / XL / XXL':'✦ 5.5m Drape'}</p>
+        <div><span className="prod-card-price">{fmt(product.price)}</span><span className="prod-card-orig">{fmt(product.originalPrice)}</span></div>
+      </div>
     </div>
   </div>);
 }
@@ -521,8 +525,8 @@ function GridCard({product,wishlist,toggleWishlist,addToCart}){
   const [sz,setSz]=useState('');
   const [loaded,setLoaded]=useState(false);
   const handle=()=>{if(isSal&&!sz){alert('Please select a size.');return;}addToCart(product,sz||null);};
-  return(<div className="grid-prod-card">
-    <div className="grid-prod-img">
+  return(<div className="grid-prod-card" style={{display:'flex',flexDirection:'column',height:'100%'}}>
+    <div className="grid-prod-img" style={{flexShrink:0}}>
       {product.isNew&&<span className="prod-card-badge badge-new-v2">New</span>}
       {product.isBestSeller&&!product.isNew&&<span className="prod-card-badge badge-best-v2">Best</span>}
       {product.discount>=25&&<span className="prod-card-badge badge-off-v2" style={{top:'auto',bottom:12}}>{product.discount}% Off</span>}
@@ -532,15 +536,25 @@ function GridCard({product,wishlist,toggleWishlist,addToCart}){
         <div className="prod-img-vignette"/>
       </div>
     </div>
-    <div className="grid-prod-info">
-      <a href={'#/product/'+product.id} style={{textDecoration:'none'}}><p className="grid-prod-name">{product.name}</p></a>
-      <p className="grid-prod-fabric">{product.fabric} · {product.color}</p>
-      {isSal&&<div className="grid-size-btns">{product.sizes.map(s=><button key={s} className={'size-btn-v2'+(sz===s?' sel':'')} onClick={()=>setSz(s===sz?'':s)}>{s}</button>)}</div>}
-      <div style={{display:'flex',alignItems:'baseline',gap:6,marginBottom:4}}><span className="grid-prod-price">{fmt(product.price)}</span><span className="grid-prod-orig">{fmt(product.originalPrice)}</span></div>
-      <div style={{fontSize:11,color:'var(--warm-gray)',marginBottom:10}}>⭐ {product.rating} ({product.reviews})</div>
-      <div className="grid-prod-actions">
-        <button className="btn-add" onClick={handle}>Add to Bag</button>
-        <button className={'wish-icon-grid'+(inW?' active':'')} onClick={()=>toggleWishlist(product.id)}><IcoHeart style={{width:16,height:16}} filled={inW}/></button>
+    <div className="grid-prod-info" style={{flex:1,display:'flex',flexDirection:'column',justifyContent:'space-between'}}>
+      <div>
+        <a href={'#/product/'+product.id} style={{textDecoration:'none',display:'block',minHeight:38}}><p className="grid-prod-name" style={{display:'-webkit-box',WebkitLineClamp:2,WebkitBoxOrient:'vertical',overflow:'hidden'}}>{product.name}</p></a>
+        <p className="grid-prod-fabric">{product.fabric} · {product.color}</p>
+      </div>
+      <div style={{minHeight:26,margin:'6px 0',display:'flex',alignItems:'center'}}>
+        {isSal?(
+          <div className="grid-size-btns" style={{marginBottom:0}}>{product.sizes.map(s=><button key={s} className={'size-btn-v2'+(sz===s?' sel':'')} onClick={()=>setSz(s===sz?'':s)}>{s}</button>)}</div>
+        ):(
+          <span style={{fontSize:11,color:'var(--warm-gray)'}}>✦ {product.length || '5.5 meters'}</span>
+        )}
+      </div>
+      <div style={{marginTop:'auto',paddingTop:4}}>
+        <div style={{display:'flex',alignItems:'baseline',gap:6,marginBottom:4}}><span className="grid-prod-price">{fmt(product.price)}</span><span className="grid-prod-orig">{fmt(product.originalPrice)}</span></div>
+        <div style={{fontSize:11,color:'var(--warm-gray)',marginBottom:10}}>⭐ {product.rating} ({product.reviews})</div>
+        <div className="grid-prod-actions">
+          <button className="btn-add" onClick={handle}>Add to Bag</button>
+          <button className={'wish-icon-grid'+(inW?' active':'')} onClick={()=>toggleWishlist(product.id)}><IcoHeart style={{width:16,height:16}} filled={inW}/></button>
+        </div>
       </div>
     </div>
   </div>);
